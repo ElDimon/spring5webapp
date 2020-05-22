@@ -16,6 +16,9 @@ public class Book {
     private String title;
     private String isbn ;
 
+    @ManyToOne
+    private Publisher publisher;
+
     @ManyToMany
    //         ( cascade = {
    //         CascadeType.PERSIST,
@@ -26,7 +29,13 @@ public class Book {
             inverseJoinColumns = @JoinColumn(name = "author_id"))
     private Set<Author> authors = new HashSet<>();
 
+    public Publisher getPublisher() {
+        return publisher;
+    }
 
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
 
     public Book() {
     }
